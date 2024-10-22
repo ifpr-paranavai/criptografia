@@ -7,46 +7,303 @@
             rel="stylesheet"
             crossorigin="anonymous">
         <link rel="stylesheet" href="estilo.css">
-        <title>Document</title>
+        <title>Criptografia com Matrizes</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h1 class="text-center">Criptografar Mensagens</h1>
+
+                <h1 class="text-center my-5">Criptografar Mensagens</h1>
                 <div class="col-12 col-sm-6 col-lg-6">
-                    <p>A palavra criptografia é derivada de 'kriptos', que em
-                        grego significa oculto, escondido. Contudo, a
+                    <p>
+                        A palavra criptografia é derivada de <em>kriptos</em>,
+                        que em grego significa oculto, escondido. Contudo, a
                         criptografia não tem como objetivo ocultar a existência
-                        de uma mensagem, mas esconder o seu significado.</p>
-                    <p>De acordo com uma chave, estabelecida previamente pelo
+                        de uma mensagem, mas esconder o seu significado.
+                    </p>
+                    <p>
+                        De acordo com uma chave, estabelecida previamente pelo
                         receptor e pelo transmissor, o texto é codificado para
-                        tornar a mensagem incompreensível a terceiros. O
+                        tornar a mensagem incompreensível para terceiros. O
                         receptor torna a mensagem compreensível ao decodificá-la
-                        por meio da chave.</p>
+                        por meio da chave.
+                    </p>
                     <p>Um dos métodos utilizados para criptografar mensagens é
                         por meio de matrizes. Para isso, podemos, por exemplo,
                         relacionar as letras do alfabeto e o símbolo #, que
                         representa um espaço em branco, a números primos da
                         seguinte maneira:</p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>D</th>
+                                <th>E</th>
+                                <th>F</th>
+                                <th>G</th>
+                                <th>H</th>
+                                <th>I</th>
+                                <th>J</th>
+                                <th>K</th>
+                                <th>L</th>
+                                <th>M</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>7</td>
+                                <td>11</td>
+                                <td>13</td>
+                                <td>17</td>
+                                <td>19</td>
+                                <td>23</td>
+                                <td>29</td>
+                                <td>31</td>
+                                <td>37</td>
+                                <td>41</td>
+                                <td>43</td>
+                            </tr>
+                            <tr>
+                                <th>N</th>
+                                <th>O</th>
+                                <th>P</th>
+                                <th>Q</th>
+                                <th>R</th>
+                                <th>S</th>
+                                <th>T</th>
+                                <th>U</th>
+                                <th>V</th>
+                                <th>W</th>
+                                <th>X</th>
+                                <th>Y</th>
+                                <th>Z</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>47</td>
+                                <td>53</td>
+                                <td>59</td>
+                                <td>61</td>
+                                <td>67</td>
+                                <td>71</td>
+                                <td>73</td>
+                                <td>79</td>
+                                <td>83</td>
+                                <td>89</td>
+                                <td>97</td>
+                                <td>101</td>
+                                <td>103</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Convertendo a mensagem "CÓDIGO SECRETO" para a forma
+                        numérica mostrada acima, obtemos:</p>
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>C</th>
+                                <th>O</th>
+                                <th>D</th>
+                                <th>I</th>
+                                <th>G</th>
+                                <th>O</th>
+                                <th>#</th>
+                                <th>S</th>
+                                <th>E</th>
+                                <th>C</th>
+                                <th>R</th>
+                                <th>E</th>
+                                <th>T</th>
+                                <th>O</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>7</td>
+                                <td>53</td>
+                                <td>11</td>
+                                <td>29</td>
+                                <td>19</td>
+                                <td>53</td>
+                                <td>2</td>
+                                <td>71</td>
+                                <td>13</td>
+                                <td>7</td>
+                                <td>67</td>
+                                <td>13</td>
+                                <td>73</td>
+                                <td>53</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Suponha que a chave utilizada seja uma matriz quadrada
+                        invertível A =</p>
+                    <table class="table table-bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Como essa matriz é de ordem 2, organizamos a sequência de
+                        números como elementos de uma matriz B com duas
+                        linhas:</p>
+                    <table class="table table-bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td>7</td>
+                                <td>53</td>
+                                <td>11</td>
+                                <td>29</td>
+                                <td>19</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>71</td>
+                                <td>13</td>
+                                <td>7</td>
+                                <td>67</td>
+                                <td>13</td>
+                                <td>73</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Ao realizar a multiplicação de A por B, obtemos a matriz
+                        C, que será enviada ao receptor. Recebida a mensagem,
+                        ele a decodifica multiplicando a inversa da chave por C,
+                        ou seja, A⁻¹C = B. Por fim, o receptor, utilizando a
+                        associação entre letras e números, poderá obter a
+                        mensagem original.</p>
+
                 </div>
 
                 <div class="col col-lg-6">
+
                     <div class="formulario p-5">
-                        <label for="mensagem">Digite a mensagem que deseja
-                            criptografar</label>
-                        <input type="text" class="form-control mb-4"
-                            id="mensagem"
-                            value="marcelo">
-                        <button class="btn btn-outline-success"
-                            onclick="codificar()">Codificar</button>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne"
+                                        aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        Criptografar Mensagens
+                                    </button>
+                                </h2>
+                                <div id="collapseOne"
+                                    class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h1
+                                            class="text-center">Criptografar</h1>
+                                        <label for="mensagem"
+                                            class="mt-4 mb-1">Digite a
+                                            mensagem que
+                                            deseja
+                                            criptografar</label>
+                                        <textarea class="form-control mb-4"
+                                            id="mensagem" rows="3"></textarea>
 
-                        <p id="mensagem-codificada">sdfsadfasd</p>
+                                        <label for="chave"
+                                            class="mt-4 mb-1">Digite a
+                                            chave secreta</label>
+                                        <textarea class="form-control mb-4"
+                                            id="chave" rows="3"></textarea>
+                                        <div class="d-grid gap-2">
+                                            <button
+                                                class="btn btn-outline-success btn-block mb-4"
+                                                onclick="codificar()">Codificar</button>
+                                        </div>
 
-                        <button onclick="decodificar()">Decodificar</button>
+                                        <h5 id="display"
+                                            style="display: none;">Mensagem
+                                            Codificada:</h5>
+                                        <p id="mensagem-codificada"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed"
+                                        type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo"
+                                        aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        Descriptografar Mensagem
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo"
+                                    class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <label for="mensagem-criptografada"
+                                            class="mt-4 mb-1">Digite a
+                                            mensagem que
+                                            deseja
+                                            descriptografar</label>
+                                        <textarea class="form-control mb-4"
+                                            id="mensagem-criptografada"
+                                            rows="3"></textarea>
 
-                        <button onclick="baixarCodigo()">Baixar Código</button>
-                        <button onclick="baixarExplicacao()">Baixar
-                            Explicação</button>
+                                        <label for="chave-secreta"
+                                            class="mt-4 mb-1">Digite a
+                                            chave secreta</label>
+                                        <textarea class="form-control mb-4"
+                                            id="chave-secreta"
+                                            rows="3"></textarea>
+                                        <div class="d-grid gap-2">
+                                            <button
+                                                class="btn btn-outline-success btn-block mb-4"
+                                                onclick="decodificar()">Decodificar</button>
+                                        </div>
+
+                                        <h5 id="display-decode"
+                                            style="display: none;">Mensagem
+                                            Decodificada:</h5>
+                                        <p id="mensagem-decodificada"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed"
+                                        type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree"
+                                        aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Baixar Código
+                                    </button>
+                                </h2>
+                                <div id="collapseThree"
+                                    class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="d-grid gap-2">
+                                            <a
+                                                href="https://github.com/ifpr-paranavai/criptografia"
+                                                class="btn btn-success"
+                                                type="button"
+                                                target="_blank">Baixar Código no
+                                                Github</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

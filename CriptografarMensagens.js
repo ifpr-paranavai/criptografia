@@ -6,10 +6,24 @@ const letras = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 const codificacao = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
     89, 97, 101, 103];
 
+/*
+const A = [
+[4, 5],
+[3, 4]
+];
+*/
 
 function codificar() {
 
+    let chave = document.getElementById("chave").value;
     let msg = document.getElementById("mensagem").value;
+    document.getElementById("mensagem-codificada").innerHTML = "";
+
+    // Remove colchetes e divide a string em linhas
+    const A = chave.trim().split('\n').map(linha =>
+        linha.replace('[', '').replace(']', '').trim().split(' ').map(Number)
+    );
+
 
     msg = msg.toUpperCase();
 
@@ -57,10 +71,6 @@ function codificar() {
 
     console.log("[3 4]");
 
-    const A = [
-        [4, 5],
-        [3, 4]
-    ];
 
     console.log();
 
@@ -89,9 +99,31 @@ function codificar() {
 
         linha += "]";  // Fecha a linha com o caractere ']'
         console.log(linha);  // Imprime a linha formatada
-    }
 
+        document.getElementById("mensagem-codificada").innerHTML += linha;
+        document.getElementById("mensagem-codificada").innerHTML += "<br />";
+        document.getElementById("display").style.display = "block";
+    }
+}
+function decodificar() {
+    // Obtém o valor do input como string
+    let chave = document.getElementById("chave-secreta").value;
+    const inputValor = document.getElementById('mensagem-criptografada').value;
+    document.getElementById("mensagem-decodificada").innerHTML = "";
+
+    // Remove colchetes e divide a string em linhas
+    const A = chave.trim().split('\n').map(linha =>
+        linha.replace('[', '').replace(']', '').trim().split(' ').map(Number)
+    );
+
+    // Remove colchetes e divide a string em linhas
+    const C = inputValor.trim().split('\n').map(linha =>
+        linha.replace('[', '').replace(']', '').trim().split(' ').map(Number)
+    );
+
+    const determinanteA = determinante(A);
     // Calcula a matriz inversa de A
+
     const inversaA = inversa(A, determinanteA);
 
     // Multiplica a matriz inversaA com a matriz criptografada C para obter a mensagem descriptografada
@@ -149,6 +181,8 @@ function codificar() {
     // Imprime a mensagem decodificada
     console.log("Mensagem Decodificada: " + decodificada);
 
+    document.getElementById("mensagem-decodificada").innerHTML += decodificada;
+    document.getElementById("display-decode").style.display = "block";
 
 }
 
@@ -204,7 +238,7 @@ function determinante(matriz) {
         return det; // Retorna o determinante se for diferente de 0
     } else {
         // Lança um erro se o determinante for 0
-        throw new Error("Erro: o determinante não pode ser 0.");
+        alert("Erro: o determinante não pode ser 0.");
     }
 }
 
